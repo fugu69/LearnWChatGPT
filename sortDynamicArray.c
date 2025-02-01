@@ -38,14 +38,20 @@ int main(){
     printf("Initial array created: \n");
     for(int i = 0; i < elemsNumber; i++){
         arr[i] = rand() % 100 + 1;
-        printf("%d\n", arr[i]);
+        printf("%d ", arr[i]);
     }
+
+    printf("\n");
 
     quicksort(arr, elemsNumber);
 
+    printf("Sorted array: \n");
     for(int i = 0; i < elemsNumber; i++){
-        printf("%d\n", arr[i]);
+        printf("%d ", arr[i]);
     }
+
+    printf("\n");
+
 
     return 0;
 }
@@ -57,6 +63,9 @@ void swap(int *a, int *b){
 }
 
 void quicksort(int array[], int length){
+    
+    // srand(time(NULL));
+    
     quicksort_recursion(array, 0, length - 1);
 }
 
@@ -70,6 +79,14 @@ void quicksort_recursion(int array[], int low, int high){
 }
 
 int partition(int array[], int low, int high){
+    
+    // Example array
+    // j
+    // 6 3 7 5 1 2 [4]
+    // i
+
+    // int pivot_index = low + (rand() % (high - low));
+
     int pivot_value = array[high];
 
     int i = low;
@@ -79,5 +96,54 @@ int partition(int array[], int low, int high){
             swap(&array[i], &array[j]);
             i++;
         }
+
+            // 1st iteration
+            // j > pivot
+            // j
+            // 6 3 7 5 1 2 [4]
+            // i
+
+            // 2nd iteration
+            // j < pivot
+            //   j
+            // 3 6 7 5 1 2 [4]
+            // i->
+            //   i
+
+            // 3rd iteration
+            // j > pivot
+            //     j
+            // 3 6 7 5 1 2 [4]
+            //   i
+
+            // 4th iteration
+            // j > pivot
+            //       j
+            // 3 6 7 5 1 2 [4]
+            //   i
+
+            // 5th iteration
+            // j < pivot
+            //         j
+            // 3 1 7 5 6 2 [4]
+            //   i->
+            //     i
+
+            // 6th iteration
+            // j < pivot
+            //           j
+            // 3 1 2 5 6 7 [4]
+            //     i->
+            //       i
+
     }
+
+    swap(&array[i], &array[high]);
+
+    //        i
+    // 3 1 2  5  6 7 [4]
+    // 3 1 2 [4] 6 7  5
+
+
+    return i; //3
 }
