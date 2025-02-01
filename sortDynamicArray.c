@@ -64,7 +64,7 @@ void swap(int *a, int *b){
 
 void quicksort(int array[], int length){
     
-    // srand(time(NULL));
+    srand(time(NULL));
     
     quicksort_recursion(array, 0, length - 1);
 }
@@ -85,7 +85,13 @@ int partition(int array[], int low, int high){
     // 6 3 7 5 1 2 [4]
     // i
 
-    // int pivot_index = low + (rand() % (high - low));
+
+    // Random number from array is choosen as pivot to optimize the algorithm
+    int pivot_index = low + (rand() % (high - low));
+
+    if(pivot_index != high){
+        swap(&array[pivot_index], &array[high]);
+    }
 
     int pivot_value = array[high];
 
