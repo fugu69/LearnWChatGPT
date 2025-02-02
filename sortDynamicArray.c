@@ -3,7 +3,7 @@
 #include <time.h>
 
 // ROAD TO THE QUICK SORT FUNCTION
-// Learning Quick Sort Algorith with ChatGPT has failed.
+// Learning Quick Sort Algorithm with ChatGPT has failed.
 // Good video to start with: https://www.youtube.com/watch?v=0jDiBM68NGU 
 
 
@@ -51,6 +51,7 @@ int main(){
     }
 
     printf("\n");
+    free(arr);
 
 
     return 0;
@@ -63,8 +64,6 @@ void swap(int *a, int *b){
 }
 
 void quicksort(int array[], int length){
-    
-    srand(time(NULL));
     
     quicksort_recursion(array, 0, length - 1);
 }
